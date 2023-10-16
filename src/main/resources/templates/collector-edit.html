@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default}">
+<head>
+</head>
+<body>
+<div layout:fragment="content">
+    <div th:text="${errors}" class="margin-bottom alert-danger"></div>
+    <form action="#" th:action="@{/collector/{id}(id=${id})}" th:object="${collector}" method="post">
+        <div class="mb-3">
+            <label for="experience" class="form-label">Стаж</label>
+            <input type="text" class="form-control" id="experience" th:field="${collector.experience}" required="true">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" th:field="${collector.name}" required="true">
+        </div>
+        <div class="mb-3">
+            <label for="qualification" class="form-label">Квалификация</label>
+            <input type="text" class="form-control" id="qualification" th:field="${collector.qualification}" required="true">
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary button-fixed">
+                <span th:if="${id == null}">Добавить</span>
+                <span th:if="${id != null}">Обновить</span>
+            </button>
+            <a class="btn btn-secondary button-fixed" th:href="@{/collector}">
+                Назад
+            </a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
