@@ -36,3 +36,12 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 targetCompatibility = JavaVersion.VERSION_16
+
+jar {
+	manifest {
+		attributes(
+				'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' '),
+				'Main-Class': 'com.example.demo.DemoApplication'
+		)
+	}
+}
