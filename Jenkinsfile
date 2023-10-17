@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('BUILD') {
           steps {
-              git([url: 'https://git.athene.tech/romanov73/example-web.git', branch: 'lab-docker'])
+              git([url: 'https://github.com/BossMouseFire/ip-java.git', branch: 'lab-docker'])
               bat './gradlew build'
           }
         }
